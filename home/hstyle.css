@@ -1,0 +1,134 @@
+
+ body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../images/highway.jpg');
+  background: linear-gradient(to bottom, #0f0c29, #3b3671, #24243e);
+  
+  background: url("../images/background1.jpg") no-repeat center center fixed;
+ /* background-image: url('mountain.jpg');*/
+  margin-left: 0%;
+  margin-right: 0%;
+  background-size: cover;
+  animation: moveBackground 15s linear infinite;
+
+  min-height: 100vh;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: bottom top;
+  }
+  50% {
+    background-position: top center;
+  }
+  100% {
+    background-position: bottom center;
+  }
+}
+
+.home-content {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(219, 21, 21, 0.1);
+  margin-left: 60px;
+  background-color: #cecccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  width: 1150px;
+  height: 150px;
+  background: rgb(96, 80, 113);
+  overflow: hidden;
+  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
+    no-repeat center/cover;
+  border-radius: 15px;
+  box-shadow: 2px 20px 50px #69a957;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.home-content h1 {
+  color: rgb(90, 243, 90);
+  font-size: 30px;
+}
+
+.home-content p {
+  font-size: 20px;
+  color: rgb(230, 221, 221);
+}
+
+.block-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.block {
+  position: relative;
+  background-image: url("../images/ho.jpg");
+  background-color: rgb(212, 237, 200);
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(94, 95, 92);
+  font-size: 1.8em;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.block.show {
+  opacity: 1;
+  transform: translateY(0); }
+
+.block a {
+  color: rgb(222, 226, 222);
+  font-family: fantasy;
+}
+
+.block:hover {
+  transform: scale(1.05);
+}
+
+.block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(130, 133, 125, 0.3);
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.block > * {
+  position: relative;
+  z-index: 2;
+}
+
+.block:nth-child(1) { transition-delay: 0.2s; }
+.block:nth-child(2) { transition-delay: 0.4s; }
+.block:nth-child(3) { transition-delay: 0.6s; }
+.block:nth-child(4) { transition-delay: 0.8s; }
+.block:nth-child(5) { transition-delay: 1.0s; }
+.block:nth-child(6) { transition-delay: 1.2s; }
+.block:nth-child(7) { transition-delay: 1.4s; }
+
+
+
+ 

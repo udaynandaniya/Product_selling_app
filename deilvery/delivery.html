@@ -1,0 +1,112 @@
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery & Payment</title>
+    <link rel="stylesheet" href="dystyle.css">
+    <link rel="stylesheet" href="../navbar.css">
+    <style>
+        .error-message {
+            color: #ff0000; /* Error message color */
+            font-size: 14px; /* Font size for error message */
+            margin-top: 5px;
+            display: none; /* Hide the error message by default */
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="../home/home.html"><i class="fas fa-house-damage"></i> Home</a>
+        <a href="../details/details.html" ><i class="fas fa-book"></i> Product Details</a>
+        <a href="../feature/feature.html" ><i class="fas fa-bolt"></i> Features</a>
+        <a href="../specification/specifications.html" ><i class="fas fa-list-alt"></i> Product Specifications</a>
+        <a href="../work/work.html" ><i class="fas fa-tools"></i> Product Working</a>
+        <a href="#" onclick="goToDelivery()" class="active"><i class="fas fa-shipping-fast"></i> Delivery & Payment</a>
+        <a href="#" id="textchanger"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </div>
+
+    <div class="delivery-content">
+        <img src="../images/baj.jpg" alt="Logo" class="logo"> 
+        <br>
+        <div class="info-container">
+            <img src="../images/deil.jpg" alt="Logo" class="logo1" id="deil">
+            <h1>Delivery Information</h1>
+        </div>
+        <br><br>
+        
+        <form id="orderForm" novalidate>
+            <div>
+                <input type="text" id="name" placeholder="Name" list="usernameList" required>
+                <datalist id="usernameList"></datalist>
+                <span id="nameError" class="error-message">Please enter your name.</span> 
+            </div>
+
+            <div>
+                <input type="text" id="address" placeholder="Address" required>
+                <span id="addressError" class="error-message">Please enter your address.</span> <!-- Error message for Address -->
+            </div>
+
+            <div>
+                <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                <span id="phoneError" class="error-message">Please enter a valid 10-digit phone number.</span> <!-- Error message for Phone -->
+            </div>
+
+            <div>
+                <input type="email" id="email" placeholder="Email" list="emaillist" required>
+                <datalist id="emaillist"></datalist>
+                <span id="emailError" class="error-message">Please enter a valid email address.</span> <!-- Error message for Email -->
+            </div>
+
+            <input type="text" id="alternateNumber" placeholder="Alternate Number (optional)">
+
+            <select id="paymentMethod" onchange="togglePaymentOptions()" required>
+                <option value="" disabled selected>Select Payment Method</option>
+                <option value="cash">Cash on Delivery</option>
+                <option value="upi">UPI Payment</option>
+            </select>
+
+            <div id="upiDetails" style="display: none;">
+                <input type="text" id="upiId" placeholder="UPI ID" required>
+                <select id="cardType">
+                    <option value="" disabled selected>Select Card Type</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="credit">Credit Card</option>
+                </select>
+                <input type="text" id="cardNumber" placeholder="Card Number" required>
+                <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY)" required>
+                <input type="text" id="cvv" placeholder="CVV" required>
+            </div>
+
+            <select id="quantity" onchange="updatePriceAndTime()" required>
+                <option value="" disabled selected>Choose Quantity</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="fastDelivery" onchange="updatePriceAndTime()"> Fast Delivery (2 Days)
+            </label>
+            
+            <p>Expected Delivery Date: <strong id="deliveryDate">N/A</strong></p>
+            
+            <div class="price-button-container">
+                <div class="price-box">
+                    $<span id="price">199</span>
+                </div>
+                <button type="button" id="placeorder" onclick="submitOrder()">Place Order</button>
+            </div>
+        </form>
+    </div>
+    <script src="dyscript.js"></script>
+</body>
+</html>
+
